@@ -4,7 +4,7 @@ import { mount } from 'react-mounter';
 
 import Form from '../imports/ui/form/form.jsx';
 import App from '../imports/ui/App.jsx';
-import Account from '../imports/ui/account';
+import Account from '../imports/ui/Account.jsx';
 
 FlowRouter.route('/', {
     name: 'Home',
@@ -16,8 +16,8 @@ FlowRouter.route('/', {
 });
 
 FlowRouter.route('/account/:_id', {
-    name: 'Home',
-    action(params) {
+    name: 'Account',
+    action(params, queryParams) {
         mount(App, {
             main: <Account/>,
         });
