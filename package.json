@@ -1,5 +1,5 @@
 {
-  "name": "reactapp",
+  "name": "reactmeteor",
   "private": true,
   "scripts": {
     "start": "meteor run",
@@ -11,7 +11,8 @@
     "@babel/runtime": "^7.1.5",
     "meteor-node-stubs": "^0.4.1",
     "react": "^16.5.0",
-    "react-dom": "^16.5.0"
+    "react-dom": "^16.5.0",
+    "react-mounter": "^1.2.0"
   },
   "meteor": {
     "mainModule": {
