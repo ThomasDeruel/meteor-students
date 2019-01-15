@@ -1,10 +1,10 @@
 import React from 'react';
 import Form from './form/form.jsx'
 
-const App = () => (
+const App = (props) => (
   <div>
     <h1>Welcome to Meteor!</h1>
-    <Form/>
+    {props.main}
   </div>
 );
 
