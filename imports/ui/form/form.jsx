@@ -34,7 +34,7 @@ class Form extends Component {
         Students.insert({firstName, lastName, github});
     };
     getAccount = (_id) => () => FlowRouter.go(`/account/${_id}`);
-    
+
     render() {
         return (
             <div>

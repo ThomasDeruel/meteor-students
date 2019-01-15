@@ -18,9 +18,8 @@ FlowRouter.route('/', {
 FlowRouter.route('/account/:_id', {
     name: 'Home',
     action(params) {
-        console.log(params)
         mount(App, {
-            main: <Account params={params}/>,
+            main: <Account/>,
         });
     },
 });
