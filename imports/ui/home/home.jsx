@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Meteor } from 'meteor/meteor'
+import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import {withTracker} from 'meteor/react-meteor-data';
 import Students from '../../api/students.js';
@@ -12,7 +12,8 @@ class Home extends Component {
     state = {
         firstName: '',
         lastName: '',
-        github: ''
+        github: '',
+        error:0,
     }
     ;
     deleteData = (id) => () => Students.remove({_id: id});
@@ -32,7 +33,11 @@ class Home extends Component {
     submit = (e) => {
         e.preventDefault();
         const {firstName, lastName, github} = this.state;
-        Students.insert({firstName, lastName, github});
+        Meteor.call('addStudent', firstName, lastName, github ,(error)=>{
+            if(error){
+                this.setState({error:1})
+            }
+        })
     };
     getAccount = (_id) => () => FlowRouter.go(`/account/${_id}`);
 
@@ -50,7 +55,8 @@ class Home extends Component {
                         <label>GitHub:</label>
                         <button className={'btn'} type={'submit'} onClick={this.submit}>Submit</button>
                     </form>
-                </div >
+                    {this.state.error === 1 ? <p>une erreur est survenue, veuillez recommencer</p> : ''}
+                </div>
                 <div className={"login"}>
                     <form>
                         <h1>Login</h1>
@@ -72,7 +78,6 @@ class Home extends Component {
 }
 
 export default FormContainer = withTracker(() => {
-    Meteor.call('subscriber',(error,result)=>console.log(result))
     return {
         students: Students.find().fetch(),
     };

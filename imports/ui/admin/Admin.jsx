@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import {withTracker} from 'meteor/react-meteor-data';
 import Students from '../../api/students.js';
@@ -31,7 +32,8 @@ class Admin extends Component {
     submit = (e) => {
         e.preventDefault();
         const {firstName, lastName, github} = this.state;
-        Students.insert({firstName, lastName, github});
+        //Students.insert({firstName, lastName, github});
+        Meteor.call('addStudent', firstName, lastName, github)
     };
     getAccount = (_id) => () => FlowRouter.go(`/account/${_id}`);
 

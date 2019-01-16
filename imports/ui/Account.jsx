@@ -1,4 +1,5 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import {withTracker} from 'meteor/react-meteor-data';
 import Students from "../api/students";
@@ -54,6 +55,11 @@ class Account extends React.Component{
     }
 }
 export default FormAccount = withTracker(() => {
+    Meteor.call('checkLogin',(error,result)=>{
+        if(!result){
+            FlowRouter.go('/')
+        }
+    });
     const _id = FlowRouter.getParam('_id');
     const student = Students.find(_id).fetch()[0];
     return {
