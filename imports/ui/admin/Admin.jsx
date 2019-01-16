@@ -3,10 +3,10 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import {withTracker} from 'meteor/react-meteor-data';
 import Students from '../../api/students.js';
 
-import './form.css';
+import './Admin.css';
 
 
-class Form extends Component {
+class Admin extends Component {
 
     state = {
         firstName: '',
@@ -48,6 +48,7 @@ class Form extends Component {
                     <label>GitHub:</label>
                     <button className={'btn'} type={'submit'} onClick={this.submit}>Submit</button>
                 </form>
+
                 <div>
                     <h1>Liste des élèves inscrit</h1>
                     {
@@ -67,6 +68,7 @@ class Form extends Component {
                     }
 
                 </div>
+
             </div>
         )
     }
@@ -78,4 +80,4 @@ export default FormContainer = withTracker(() => {
     return {
         students: Students.find().fetch(),
     };
-})(Form);
+})(Admin);

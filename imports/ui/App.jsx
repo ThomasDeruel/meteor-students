@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import Form from './form/form.jsx'
+import Home from './home/home.jsx'
 
 const App = (props) => (
   <div>
