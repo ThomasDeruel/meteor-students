@@ -55,11 +55,6 @@ class Account extends React.Component{
     }
 }
 export default FormAccount = withTracker(() => {
-    Meteor.call('checkLogin',(error,result)=>{
-        if(!result){
-            FlowRouter.go('/')
-        }
-    });
     const _id = FlowRouter.getParam('_id');
     const student = Students.find(_id).fetch()[0];
     return {

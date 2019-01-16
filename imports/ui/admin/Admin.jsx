@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import {withTracker} from 'meteor/react-meteor-data';
 import Students from '../../api/students.js';
 
 import './Admin.css';
@@ -32,7 +31,6 @@ class Admin extends Component {
     submit = (e) => {
         e.preventDefault();
         const {firstName, lastName, github} = this.state;
-        //Students.insert({firstName, lastName, github});
         Meteor.call('addStudent', firstName, lastName, github)
     };
     getAccount = (_id) => () => FlowRouter.go(`/account/${_id}`);
@@ -50,7 +48,6 @@ class Admin extends Component {
                     <label>GitHub:</label>
                     <button className={'btn'} type={'submit'} onClick={this.submit}>Submit</button>
                 </form>
-
                 <div>
                     <h1>Liste des élèves inscrit</h1>
                     {
@@ -64,22 +61,12 @@ class Admin extends Component {
                                     <button onClick={this.getAccount(item._id)}>Modifier</button>
                                 </ul>
                             )
-
-
                         })
                     }
-
                 </div>
-
             </div>
         )
     }
-
-
 }
 
-export default FormContainer = withTracker(() => {
-    return {
-        students: Students.find().fetch(),
-    };
-})(Admin);
+export default FormContainer;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { mount } from 'react-mounter';
-
+import { Meteor } from 'meteor/meteor';
 import Home from '../imports/ui/home/home.jsx';
 import List from '../imports/ui/liste/list.jsx';
 import Admin from '../imports/ui/admin/Admin.jsx';
@@ -17,13 +17,21 @@ FlowRouter.route('/', {
     },
 });
 
-FlowRouter.route('/account/:_id', {
+FlowRouter.route('/account/:_id',
+{
     name: 'Account',
     action(params, queryParams) {
-        mount(App, {
-            main: <Account/>,
-        });
-    },
+        Meteor.call('checkLogin',(error,result)=>{
+            if(!result){
+                FlowRouter.go('/') 
+            } else {
+                mount(App, {
+                    main: <Account/>,
+                });
+            }
+        })
+
+    }
 });
 FlowRouter.route('/list', {
     name: 'List',
