@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Meteor } from 'meteor/meteor'
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import {withTracker} from 'meteor/react-meteor-data';
 import Students from '../../api/students.js';
@@ -71,6 +72,7 @@ class Home extends Component {
 }
 
 export default FormContainer = withTracker(() => {
+    Meteor.call('subscriber',(error,result)=>console.log(result))
     return {
         students: Students.find().fetch(),
     };

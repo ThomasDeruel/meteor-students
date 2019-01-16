@@ -1,8 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import Students from '../imports/api/students.js';
 
-function insertLink(firstName, lastName,github) {
-    Students.insert({ firstName, lastName, github });
+function insertLink(firstName, lastName,github, status) {
+    Students.insert({ firstName, lastName, github, status });
 }
 
 Meteor.startup(() => {
@@ -11,7 +11,14 @@ Meteor.startup(() => {
     insertLink(
       'admin.firstname',
       'admin.lastname',
-      'admin.github'
+      'admin.github',
+      'admin'
     );
+  }
+});
+
+Meteor.methods({
+  'subscriber': function(){
+    return 'ceci est un test';
   }
 });
