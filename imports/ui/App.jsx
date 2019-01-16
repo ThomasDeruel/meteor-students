@@ -1,11 +1,15 @@
 import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
 import Form from './form/form.jsx'
 
 const App = (props) => (
   <div>
-    <h2>Header !</h2>
+    <Header/>
+    <div className="body">
     {props.main}
-    <h2>Footer</h2>
+    </div>
+    <Footer/>
   </div>
 );
 
