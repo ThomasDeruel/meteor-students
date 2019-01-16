@@ -3,8 +3,9 @@ import Form from './form/form.jsx'
 
 const App = (props) => (
   <div>
-    <h1>Welcome to Meteor!</h1>
+    <h2>Header !</h2>
     {props.main}
+    <h2>Footer</h2>
   </div>
 );
 

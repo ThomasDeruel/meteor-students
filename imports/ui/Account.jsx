@@ -9,6 +9,7 @@ class Account extends React.Component{
         firstName:this.props.student.firstName,
         lastName:this.props.student.lastName,
         github:this.props.student.github,
+        isModified: false,
     }
 
     backToMenu = () => FlowRouter.go('/')
@@ -25,7 +26,7 @@ class Account extends React.Component{
     studentUpdate = () => {
         console.log('submit')
         const {_id,firstName,lastName,github} = this.state;
-        console.log(Students.update({_id},
+        Students.update({_id},
             {
                 $set: {
                     firstName,
@@ -33,17 +34,20 @@ class Account extends React.Component{
                     github
                 }
             }
-        ))
+        )
+        this.setState({isModified:true})
     }
     render(){
         return(
             <div>
-                <p>compte numéro:</p>
+                <p>Modifier:</p>
                 <input type='text' placeholder='FirstName' onChange={this.handleFirstName} value={this.state.firstName} />
                 <input type='text' placeholder='Last Name' onChange={this.handleLastName} value={this.state.lastName} />
                 <input type='text' placeholder='github' onChange={this.handleGithub} value={this.state.github} />
                 <button onClick={this.studentUpdate}>Modifier</button>
-                <p>{this.state.firstName}</p>
+                {this.state.isModified && (
+                    <p>Le compte a été modifié</p>
+                )}
                 <button onClick={this.backToMenu}>Retour</button>
             </div>
         )
