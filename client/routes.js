@@ -44,8 +44,14 @@ FlowRouter.route('/list', {
 FlowRouter.route('/admin', {
     name: 'Admin',
     action(params, queryParams) {
-        mount(App, {
-            main: <Admin/>,
-        });
+        Meteor.call('checkStatus',(error,result)=>{
+            if(!result){
+                FlowRouter.go('/')
+            } else {
+                mount(App, {
+                    main: <Admin/>,
+                });
+            }    
+        })
     },
 });

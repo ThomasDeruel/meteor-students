@@ -3,7 +3,7 @@ import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import {withTracker} from 'meteor/react-meteor-data';
 import Students from '../../api/students.js';
-
+import Login from './Login';
 import './home.css';
 
 
@@ -13,10 +13,20 @@ class Home extends Component {
         firstName: '',
         lastName: '',
         github: '',
+        login:{
+            firstName: '',
+            lastName: '',
+            github: '',           
+        },
         error:0,
     }
     ;
     deleteData = (id) => () => Students.remove({_id: id});
+
+    handleFistName(){
+        this.setState({firstName: event.target.value})
+        console.log(this.state.firstName);
+    }
 
     handleFistName = () => {
         this.setState({firstName: event.target.value})
@@ -29,6 +39,10 @@ class Home extends Component {
     handlegithub = () => {
         this.setState({github: event.target.value});
         console.log(this.state.github);
+    }
+    login = (e) => {
+        e.preventDefault();
+        Meteor.call('connection')
     }
     submit = (e) => {
         e.preventDefault();
@@ -57,19 +71,9 @@ class Home extends Component {
                     </form>
                     {this.state.error === 1 ? <p>une erreur est survenue, veuillez recommencer</p> : ''}
                 </div>
-                <div className={"login"}>
-                    <form>
-                        <h1>Login</h1>
-                        <input className={'nom'} onChange={this.handleFistName} type={'text'}/>
-                        <label>Nom:</label>
-                        <input className={'prenom'} type={'text'} onChange={this.handlelastName}/>
-                        <label>Prénom:</label>
-                        <input className={'lien'} type={'text'} onChange={this.handlegithub}/>
-                        <label>GitHub:</label>
-                        <button className={'btn'} type={'submit'} onClick={this.submit}>Submit</button>
-                    </form>
-                </div>
-
+            <Login
+            handleFistName={()=>this.test}
+            />
             </div>
         )
     }

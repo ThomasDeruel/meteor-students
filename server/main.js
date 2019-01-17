@@ -31,5 +31,26 @@ Meteor.methods({
     } else {
       return true;
     }
+  },
+  'checkStatus'(){
+    const data = Students.findOne(this.userId);
+    if(!data && data.status !== "admin") {
+      return false;
+    } else {
+      return true;
+    }
+  },
+  'connection'(firstName,lastName,github){
+    if(Students.find({firstName,lastName,github}).count() === 0){
+      throw new Meteor.Error("not-found","compte introuvable, veuillez recommencer");
+    } else {
+      const data = Students.findOne({firstName,lastName,github});
+      this.setUserId(data._id);
+      if(data.status === 'admin'){
+        return '/admin';
+      } else {
+        return `/account/${data._id}`;
+      }
+    }
   }
 });
