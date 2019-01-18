@@ -22,10 +22,11 @@ $red-2: rgb(150, 22, 42);
 
 %body-basic {
   font: 100% $font-stack;
-  background-image: url("https://cdn.pixabay.com/photo/2016/06/02/02/33/triangles-1430105__340.png");
+  background-image: url("/img/background-triangles.png");
+  //background-image: url("https://cdn.pixabay.com/photo/2016/06/02/02/33/triangles-1430105__340.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: $blue-4;
+  background-color:$blue-1; //au cas ou l'image n'est pas chargé on affiche une couleur
 }
 
 %no-margin-no-padding {
