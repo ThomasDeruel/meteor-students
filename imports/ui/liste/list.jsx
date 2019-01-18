@@ -15,22 +15,27 @@ class List extends Component {
 
     render() {
         return (
-            <div className={"list_content"}>
-                <div className={"form_list"} >
+            <div className='list_content'>
+                <div className='form_list' >
                     <h1>Liste des élèves inscrit</h1>
-                    {
-                        this.props.students.map((item, index) => {
-                            return (
-                                <ul key={index}>
-                                    <li>{item.firstName}</li>
-                                    <li>{item.lastName}</li>
-                                    <li>{item.github}</li>
-                                    <button className={"btn"} onClick={this.deleteData(item._id)}>supprimer</button>
-                                    <button className={"btn"} onClick={this.getAccount(item._id)}>Modifier</button>
-                                </ul>
-                            )
-                        })
-                    }
+                    <table className='table'>
+                        <tr className='bold'>
+                            <td>Nom</td>
+                            <td>Prénom</td>
+                            <td>Lien GitHub</td>
+                        </tr>
+                        {
+                            this.props.students.map((item, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <td>{item.firstName}</td>
+                                        <td>{item.lastName}</td>
+                                        <td>{item.github}</td>
+                                        </tr>
+                                )
+                            })
+                        }
+                    </table>
                 </div>
             </div>
         );

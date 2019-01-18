@@ -1,98 +1,128 @@
-//// declaration of variable and @extend ////
+/****   Style de la page admin.jsx   ****/
 
-$font-stack: Bebas Neue, sans-serif;
 
-//white
-$white-1: rgb(255, 255, 255);
-//black
-$black-1: rgb(0, 0, 0);
-$black-2: rgb(51, 51, 51);
-$black-3: rgba(51, 51, 51, 0.8);
-//grey
-$grey-1: rgb(105, 105, 105);
-$grey-2: rgb(204, 204, 204);
-//blue
-$blue-1: rgb(0, 142, 167);
-$blue-2: rgba(0, 142, 167, 0.8);
-$blue-3: rgb(25, 58, 86);
-$blue-4: rgb(46, 65, 88);
-//red
-$red-1: rgb(213, 45, 69);
-$red-2: rgb(150, 22, 42);
+@import 'declaration';
 
-%no-margin-no-padding {
-  margin: 0px;
-  padding: 0px;
-}
-
-%body-basic {
-  font: 100% $font-stack;
-  background-color: $blue-1;
-}
-
-////   Page style   ////
 
 html, body {
-  @extend %no-margin-no-padding;
-}
+    @extend %body-basic;
+    @extend %no-margin-no-padding;
 
-.content {/*
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;*/
-
-  .form_new_student, .form_list {
-    //padding: 30px 10px;
-
-    h1 {
-      text-align: center;
+    header, footer {
+        display: none;
     }
 
-    /*input[type="text"] {
-      color: $grey-2;
-      width: 100%;
-      padding: 12px 20px;
-      margin: 8px 0;
-      border: 1px solid $blue-1;
-      border-radius: 4px;
-      display: inline-block;
-      box-sizing: border-box;
-    }*/
-/*
-    .btn {
-      width: 25%;
-      background-color: $black-2;
-      color: $white-1;
-      padding: 14px 2px 14px;
-      margin: 45px 38%;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
+    .list_content {
+        background-color: $white-1;
+        padding: 10px;
+        margin: 90px 300px;
+        border: 5px solid $blue-2;
+        border-radius: 4px;
+        overflow: auto;
 
-    .btn:hover {
-      background-color: $grey-2;
-      color: $black-1;
-    }*/
-  }
+        .form_registration {
+          width: 100%;
 
-  .form_new_student {
-    background-color: $white-1;
-    width: 50%;
-    padding: 150px 50px;
-  }
+          .h1_spe {
+            margin: 20px 0;
+          }
 
-  .form_list {
-    background-color: $blue-1;
-    color: $white-1;
-    width: 50%;
-    padding: 150px 50px;
-    border-left: 10px solid $blue-3;
-  }
+          h1 { 
+            margin: 50px 0;
+          }
+          
+          h1, .h1_spe {
+              text-align: center;
+          }
   
-}
+          input[type="text"] {
+            color: $grey-1;
+            //width: 100%;
+            padding: 12px 20px;
+            margin: 8px 16px;
+            border: none;
+            border-bottom: 1px solid $grey-2;
+            box-sizing: border-box;
+          }           
 
-header, footer {
-  display: none;
-}
+          .btn_spe {
+              background-color: $blue-4;
+              color: white;
+              padding: 12px 26px;
+              margin: 0 27px;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+          }
+      
+          .btn_spe:hover {
+              background-color: $blue-2;
+          } 
+
+          hr {
+            margin-top: 70px;
+            width: 50%;
+            justify-content: center;
+          }
+
+          .form_list {
+            width: auto;
+            height: 70vh;
+            overflow: auto;
+            padding-right: 35px;
+            
+            h1 {
+              text-align: center;
+              margin-top: 50px;
+              margin-bottom: 50px;
+            }
+            
+            input[type="text"] {
+              background-color: greenyellow;
+              color: $grey-1;
+              //width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0px;
+              display: inline-block;
+              border: none;
+              border-bottom: 1px solid $grey-2;
+              box-sizing: border-box;
+            }
+            
+            .table {
+              width: 100%;
+              border: none;
+              border-spacing: 2px 1.4rem; //espacement des cellules du tableau
+              
+              .bold {
+                font-weight: bold;
+                font-size: large;
+              }
+              
+              tr {
+                margin: 5px 0;
+                
+                td {
+                  text-align: center;
+                }
+              }
+            }            
+            
+            .btn {
+              background-color: $blue-4;
+                color: white;
+                padding: 14px 2px 14px;
+                width: 100%;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+        
+            .btn:hover {
+              background-color: $blue-2;
+            } 
+          }
+        }
+    }
+  }
+      

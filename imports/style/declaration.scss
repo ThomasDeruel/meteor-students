@@ -1,7 +1,9 @@
+/****   Fichier de déclaration de variable ou de methodes   ****/
 
-////   Decalration of variable   ////
 
-$font-stack: Bebas Neue, sans-serif;
+////   Décalration des variables   ////
+
+$font-stack: 'Roboto', 'Montserrat', 'Arial', sans-serif;
 //white
 $white-1: rgb(255, 255, 255);
 //black
@@ -19,6 +21,10 @@ $blue-4: rgb(46, 65, 88);
 //red
 $red-1: rgb(213, 45, 69);
 $red-2: rgb(150, 22, 42);
+
+
+
+////   Declaration des methodes de style   ////
 
 %body-basic {
   font: 100% $font-stack;
