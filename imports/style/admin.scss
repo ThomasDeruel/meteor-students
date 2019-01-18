@@ -1,0 +1,128 @@
+/****   Style de la page admin.jsx   ****/
+
+
+@import 'declaration';
+
+
+html, body {
+    @extend %body-basic;
+    @extend %no-margin-no-padding;
+
+    header, footer {
+        display: none;
+    }
+
+    .list_content {
+        background-color: $white-1;
+        padding: 10px;
+        margin: 90px 300px;
+        border: 5px solid $blue-2;
+        border-radius: 4px;
+        overflow: auto;
+
+        .form_registration {
+          width: 100%;
+
+          .h1_spe {
+            margin: 20px 0;
+          }
+
+          h1 { 
+            margin: 50px 0;
+          }
+          
+          h1, .h1_spe {
+              text-align: center;
+          }
+  
+          input[type="text"] {
+            color: $grey-1;
+            //width: 100%;
+            padding: 12px 20px;
+            margin: 8px 16px;
+            border: none;
+            border-bottom: 1px solid $grey-2;
+            box-sizing: border-box;
+          }           
+
+          .btn_spe {
+              background-color: $blue-4;
+              color: white;
+              padding: 12px 26px;
+              margin: 0 27px;
+              border: none;
+              border-radius: 4px;
+              cursor: pointer;
+          }
+      
+          .btn_spe:hover {
+              background-color: $blue-2;
+          } 
+
+          hr {
+            margin-top: 70px;
+            width: 50%;
+            justify-content: center;
+          }
+
+          .form_list {
+            width: auto;
+            height: 70vh;
+            overflow: auto;
+            padding-right: 35px;
+            
+            h1 {
+              text-align: center;
+              margin-top: 50px;
+              margin-bottom: 50px;
+            }
+            
+            input[type="text"] {
+              background-color: greenyellow;
+              color: $grey-1;
+              //width: 100%;
+              padding: 12px 20px;
+              margin: 8px 0px;
+              display: inline-block;
+              border: none;
+              border-bottom: 1px solid $grey-2;
+              box-sizing: border-box;
+            }
+            
+            .table {
+              width: 100%;
+              border: none;
+              border-spacing: 2px 1.4rem; //espacement des cellules du tableau
+              
+              .bold {
+                font-weight: bold;
+                font-size: large;
+              }
+              
+              tr {
+                margin: 5px 0;
+                
+                td {
+                  text-align: center;
+                }
+              }
+            }            
+            
+            .btn {
+              background-color: $blue-4;
+                color: white;
+                padding: 14px 2px 14px;
+                width: 100%;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+        
+            .btn:hover {
+              background-color: $blue-2;
+            } 
+          }
+        }
+    }
+  }
+      

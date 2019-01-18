@@ -1,0 +1,8 @@
+/****   Import de tous les styles scss   ****/
+
+
+
+@import 'declaration.scss'; //style commun à tous les styles
+@import 'home.scss'; //style de lapage home
+@import 'admin.scss'; //style de la page admin
+@import 'list.scss'; //style de la page list

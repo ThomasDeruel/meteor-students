@@ -1,0 +1,56 @@
+/****   Style de la page list.jsx   ****/
+
+
+@import 'declaration';
+
+
+html, body {
+    @extend %body-basic;
+    @extend %no-margin-no-padding;
+
+    header, footer {
+        display: none;
+    }
+
+    .list_content {
+        background-color: $white-1;
+        padding: 10px;
+        margin: 90px 300px;
+        border: 5px solid $blue-2;
+        border-radius: 4px;
+        overflow: auto;
+
+        .form_list {
+            width: auto;
+            height: 70vh;
+            overflow: auto;
+            padding-right: 35px;
+    
+            h1 {
+                text-align: center;
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
+
+            .table {
+                width: 100%;
+                border: none;
+                border-spacing: 2px 1.4rem; //espacement des cellules du tableau
+
+                .bold {
+                    font-weight: bold;
+                    font-size: large;
+                }
+
+                tr {
+                    margin: 5px 0;
+
+                    td {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+

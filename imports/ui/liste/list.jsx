@@ -3,44 +3,43 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import {withTracker} from 'meteor/react-meteor-data';
 import Students from '../../api/students.js';
 
-import './list.css';
+import '../../style/global';
+//import '../../style/list';
 
 
 class List extends Component {
 
-
     deleteData = (id) => () => Students.remove({_id: id});
-
-
 
     getAccount = (_id) => () => FlowRouter.go(`/account/${_id}`);
 
     render() {
         return (
-
-                <div>
+            <div className='list_content'>
+                <div className='form_list' >
                     <h1>Liste des élèves inscrit</h1>
-                    {
-                        this.props.students.map((item, index) => {
-                            return (
-                                <ul key={index}>
-                                    <li>{item.firstName}</li>
-                                    <li>{item.lastName}</li>
-                                    <li>{item.github}</li>
-                                    <button onClick={this.deleteData(item._id)}>supprimer</button>
-                                    <button onClick={this.getAccount(item._id)}>Modifier</button>
-                                </ul>
-                            )
-
-
-                        })
-                    }
-
+                    <table className='table'>
+                        <tr className='bold'>
+                            <td>Nom</td>
+                            <td>Prénom</td>
+                            <td>Lien GitHub</td>
+                        </tr>
+                        {
+                            this.props.students.map((item, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <td>{item.firstName}</td>
+                                        <td>{item.lastName}</td>
+                                        <td>{item.github}</td>
+                                        </tr>
+                                )
+                            })
+                        }
+                    </table>
                 </div>
-        )
+            </div>
+        );
     }
-
-
 }
 
 export default FormContainer = withTracker(() => {
