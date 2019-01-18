@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import {withTracker} from 'meteor/react-meteor-data';
 import Students from '../../api/students.js';
@@ -12,7 +13,8 @@ class Home extends Component {
     state = {
         firstName: '',
         lastName: '',
-        github: ''
+        github: '',
+        error:0,
     }
     ;
     deleteData = (id) => () => Students.remove({_id: id});
@@ -32,7 +34,11 @@ class Home extends Component {
     submit = (e) => {
         e.preventDefault();
         const {firstName, lastName, github} = this.state;
-        Students.insert({firstName, lastName, github});
+        Meteor.call('addStudent', firstName, lastName, github ,(error)=>{
+            if(error){
+                this.setState({error:1})
+            }
+        })
     };
     getAccount = (_id) => () => FlowRouter.go(`/account/${_id}`);
 

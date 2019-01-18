@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
+import { Meteor } from 'meteor/meteor';
 import { FlowRouter } from 'meteor/kadira:flow-router';
-import {withTracker} from 'meteor/react-meteor-data';
 import Students from '../../api/students.js';
 
 import '../../style/global';
@@ -31,7 +31,7 @@ class Admin extends Component {
     submit = (e) => {
         e.preventDefault();
         const {firstName, lastName, github} = this.state;
-        Students.insert({firstName, lastName, github});
+        Meteor.call('addStudent', firstName, lastName, github)
     };
     getAccount = (_id) => () => FlowRouter.go(`/account/${_id}`);
 
@@ -77,12 +77,6 @@ class Admin extends Component {
             </div>
         )
     }
-
-
 }
 
-export default FormContainer = withTracker(() => {
-    return {
-        students: Students.find().fetch(),
-    };
-})(Admin);
+export default FormContainer;
