@@ -3,7 +3,8 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import {withTracker} from 'meteor/react-meteor-data';
 import Students from '../../api/students.js';
 
-import './home.css';
+import '../../style/global';
+//import Admin from '../admin/Admin.jsx';
 
 
 class Home extends Component {
@@ -37,37 +38,35 @@ class Home extends Component {
 
     render() {
         return (
-            <div>
-                <div className={"inscription"}>
+            <div className={'connexion_content'} >
+                <div className={'inscription form_registration'}>
                     <form>
                         <h1>Inscription</h1>
-                        <input className={'nom'} onChange={this.handleFistName} type={'text'}/>
-                        <label>Nom:</label>
-                        <input className={'prenom'} type={'text'} onChange={this.handlelastName}/>
-                        <label>Prénom:</label>
-                        <input className={'lien'} type={'text'} onChange={this.handlegithub}/>
-                        <label>GitHub:</label>
-                        <button className={'btn'} type={'submit'} onClick={this.submit}>Submit</button>
-                    </form>
-                </div >
-                <div className={"login"}>
-                    <form>
-                        <h1>Login</h1>
-                        <input className={'nom'} onChange={this.handleFistName} type={'text'}/>
-                        <label>Nom:</label>
-                        <input className={'prenom'} type={'text'} onChange={this.handlelastName}/>
-                        <label>Prénom:</label>
-                        <input className={'lien'} type={'text'} onChange={this.handlegithub}/>
-                        <label>GitHub:</label>
+                        <input className={'nom'} onChange={this.handleFistName} type={'text'} placeholder={'Nom'} />
+                        {/*<label>Nom:</label>*/}
+                        <input className={'prenom'} type={'text'} onChange={this.handlelastName} placeholder={'Prénom'} />
+                        {/*<label>Prénom:</label>*/}
+                        <input className={'lien'} type={'text'} onChange={this.handlegithub} placeholder={'Lien GitHub'} />
+                        {/*<label>GitHub:</label>*/}
                         <button className={'btn'} type={'submit'} onClick={this.submit}>Submit</button>
                     </form>
                 </div>
-
+                <div className='horizontal_bar'></div>
+                <div className={'login form_login'}>
+                    <form>
+                        <h1>Login</h1>
+                        <input className={'nom'} onChange={this.handleFistName} type={'text'} placeholder={'Nom'}/>
+                        {/*<label>Nom:</label>*/}
+                        <input className={'prenom'} type={'text'} onChange={this.handlelastName} placeholder={'Prénom'}/>
+                        {/*<label>Prénom:</label>
+                        <input className={'lien'} type={'text'} onChange={this.handlegithub}/>*/}
+                        {/*<label>GitHub:</label>*/}
+                        <button className={'btn'} type={'submit'} onClick={this.submit }>Submit</button>
+                    </form>
+                </div>
             </div>
         )
     }
-
-
 }
 
 export default FormContainer = withTracker(() => {

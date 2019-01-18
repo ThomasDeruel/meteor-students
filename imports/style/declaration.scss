@@ -1,0 +1,64 @@
+
+////   Decalration of variable   ////
+
+$font-stack: Bebas Neue, sans-serif;
+//white
+$white-1: rgb(255, 255, 255);
+//black
+$black-1: rgb(0, 0, 0);
+$black-2: rgb(51, 51, 51);
+$black-3: rgba(51, 51, 51, 0.8);
+//grey
+$grey-1: rgb(105, 105, 105);
+$grey-2: rgb(204, 204, 204);
+//blue
+$blue-1: rgb(0, 142, 167);
+$blue-2: rgba(0, 142, 167, 0.8);
+$blue-3: rgb(25, 58, 86);
+$blue-4: rgb(46, 65, 88);
+//red
+$red-1: rgb(213, 45, 69);
+$red-2: rgb(150, 22, 42);
+
+%body-basic {
+  font: 100% $font-stack;
+  background-image: url("https://cdn.pixabay.com/photo/2016/06/02/02/33/triangles-1430105__340.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: $blue-4;
+}
+
+%no-margin-no-padding {
+    padding: 0;
+    margin: 0;
+}
+
+%box-sizing {
+  width: 600px;
+  height: 400px;
+}
+
+%margin-without-bottom {
+  margin-top: 100px;
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-bottom: 0;
+}
+
+%margin-without-top {
+  margin-top: 100px;
+  margin-right: 200px;
+  margin-left: 200px;
+  margin-bottom: 100px;
+}
+
+%border-radius-top {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+%border-radius-bottom {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+

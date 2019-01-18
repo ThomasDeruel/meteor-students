@@ -1,0 +1,87 @@
+
+@import 'declaration';
+
+////   Style de la page   ////
+
+html {
+@extend %body-basic;
+
+  header, footer {
+    display: none;
+  }
+
+  .connexion_content {
+    background-color: $white-1;
+    padding: 10px;
+    //margin-top: 100px;
+    border: 5px solid $blue-2;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    @extend %margin-without-top;
+
+    .form_registration, .form_login {
+      padding: 30px 10px;
+  
+      form {
+        padding: 10px 50px;
+      }
+  
+      h1 {
+        text-align: center;
+      }
+  
+      input[type="text"] {
+        color: $grey-1;
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: none;
+        border-bottom: 1px solid $grey-2;
+        box-sizing: border-box;
+      }
+  
+      .btn {
+        width: 25%;
+        background-color: $blue-4;
+        color: white;
+        padding: 14px 2px 14px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+  
+      .btn:hover {
+        background-color: $blue-2;
+      }
+    }
+  }
+  
+  .form_registration {
+    @extend %box-sizing;
+  
+    .btn {
+      margin: 45px 38%;
+    }
+  }
+  
+  .form_login {
+    @extend %box-sizing;
+  
+    .btn {
+      margin: 102px 38%;
+    }
+  }
+  
+  ////   Bar horizontal   ////
+  .horizontal_bar {
+    background-color: $blue-2;
+    width: 0;
+    height: 250px;
+    margin-top: 10%;
+    padding: 0;
+    border: 1px solid $blue-2;
+    border-top-left-radius: 0%;
+  }  
+}

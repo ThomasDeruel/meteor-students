@@ -1,0 +1,62 @@
+
+@import 'declaration';
+
+
+////   Page style   ////
+
+html, body {
+    @extend %body-basic;
+    @extend %no-margin-no-padding;
+
+    header, footer {
+        display: none;
+    }
+
+    .list_content {
+        background-color: $white-1;
+        padding: 10px;
+        margin: 90px 300px;
+        border: 5px solid $blue-2;
+        border-radius: 4px;
+
+        .form_list {
+            width: auto;
+            height: 70vh;
+            overflow: auto;
+            padding-right: 35px;
+    
+            h1 {
+                text-align: center;
+                margin-top: 50px;
+                margin-bottom: 50px;
+            }
+
+            ul {
+                //display: flex;
+                li {
+                    display: inline-block;
+                    justify-content: space-between;
+                    list-style-type: none;
+                    margin: 30px 7px;
+                }
+            }
+        
+            .btn {
+                width: 25%;
+                background-color: $blue-4;
+                color: white;
+                padding: 14px 2px 14px;
+                margin: 12px 10px 1px 7px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                float: right;
+            }
+        
+            .btn:hover {
+                background-color: $blue-2;
+            } 
+        }
+    }
+}
+
